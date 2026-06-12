@@ -1,7 +1,13 @@
 export async function up(db) {
-    /** TF 13 */
+    await db.query(`
+        ALTER TABLE addresses
+        ADD COLUMN state TEXT NULL
+    `)
 }
 
 export async function down(db) {
-    /** TF 13 */
+    await db.query(`
+        ALTER TABLE addresses
+        DROP COLUMN state
+    `)
 }
