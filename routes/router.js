@@ -19,6 +19,7 @@ import LoginController from '../app/Http/Controllers/LoginController.js';
 import AuthMiddleware from '../app/Http/Middlewares/AuthMiddleware.js';
 import LogMiddleware from '../app/Http/Middlewares/LogMiddleware.js';
 import SwaggerDoc from '../app/Http/SwaggerDoc.js';
+import SlowHttpController from '../app/Http/Controllers/SlowHttpController.js';
 
 const router = Router();
 
@@ -88,6 +89,9 @@ router.use("/addresses", AuthMiddleware, addressRouter);
 
 /** Router para cursos */
 router.use("/courses", AuthMiddleware, courseRouter);
+
+/** TF 14 */
+router.get('/tf14', SlowHttpController);
 
 /**
  * Fallback 404 para requisições não encontradas
